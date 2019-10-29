@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+      <button class="btn btn-success" type="submit">Pesquisar</button>
+</form>
+    <br><br>
+    <button type="button" class="btn btn-outline-primary">PROAES <img src="{% static 'imagens/proaes.png' %}"></button>
+    <button type="button" class="btn btn-outline-secondary">PROGRAD <img src="{% static 'imagens/prograd.png' %}"></button>
+    <button type="button" class="btn btn-outline-success">PROPEG  <img src="{% static 'imagens/propeg.png' %}"></button>
+    <button type="button" class="btn btn-outline-warning">NURCA <img src="{% static 'imagens/nurca.png' %}"></button>
+    <button type="button" class="btn btn-outline-dark">Setor Médico  <img src="{% static 'imagens/setor_medico.png' %}"></button>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+    <div class="col-md-12 mt-5">
+    {% if messages %}{% include 'messages.html' %}{% endif %}
+    <div class="alert alert-warning" role="alert">
+      <center> Sessão exclusiva para coordenadores  </center>
+    </div>
+        <div class="col-md-6 offset-md-3" style="border: 0 #000 solid">
+                <div class="card border-primary mb-3">
+                    <div class="p-3 mb-2 bg-info text-white".bg-info>
+                        <div class="p-3 mb-2 bg-info text-white".bg-info>
+                            <h2 align="center">Login</h2>
+                            <center> <img src="{% static 'imagens/coordenadores.png' %}"></center>
+                        </div>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="input-group">
+                            <div class="input-group-prepend" >
+                                <div class="input-group-text"><i class="fa fa-user"></i></div>
+                            </div>
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Email" maxlength="11" required>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-asterisk"></i></div></div>
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <br>
+                        <center>
+                            <button type="submit" class="btn btn-success btn-lg btn-block">Acessar</button>
+                        </center>
+
+                        <hr>
+<!--                        <div style="font-size: 0.900em;"><span>Caso tenha esquecido sua senha, </span> <a href="">clique aqui</a> <span>para recuperá-la</span></div>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+{%endblock %}

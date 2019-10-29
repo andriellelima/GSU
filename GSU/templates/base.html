@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>G.S.U</title>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.css' %}"/>
+    <!-- FontAwesome -->
+    <!-- <link href="http://sistemas.ufac.br/estatico/basic/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css' %}"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+    <!-- Icon UFAC -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagens/logo_ufac.gif' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light topo-back mb-4">
+    <a class="navbar-brand" href="#">
+        <img src="{% static 'imagens/logo_ufac.png' %}">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu_user"
+            aria-controls="menu_user" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div style="border: 0 #000 solid">
+        <p class="navbar-text topo">Universidade Federal do Acre <br>Guia de Serviços UFAC</p>
+    </div>
+
+    <div class="navbar-collapse" id="menu_user">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                {% if user.is_authenticated %}
+                    <a class="nav-link active dropdown-toggle" id="links_user" href="#" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">{{ user }}</a>
+                    <div class="dropdown-menu" aria-labelledby="links_user">
+                      {#  <a class="dropdown-item" href="{% url 'alterar_senha' %}"><i class="fa fa-cog"></i> Alterar Senha</a> #}
+<!--                        <div class="dropdown-divider"></div>-->
+                        <a class="dropdown-item" href="{% url 'logar' %}"><i class="fa fa-sign-out"></i> Sair</a>
+                    </div>
+                    {% else %}
+                     <div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Coordenadores
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'logar' %}">Login  <img src="{% static 'imagens/login.png' %}"></a>
+                                <a class="dropdown-item" href="{% url 'home' %}">Página Inicial  <img src="{% static 'imagens/home.png' %}"></a>
+                            </div>
+
+                        </li>
+                    </div>
+
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div class="container">{% block conteudo %}{% endblock %}</div>
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://sistemas.ufac.br/estatico/basic/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="{% static 'bootstrap4/js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap4/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="http://sistemas.ufac.br/estatico/basic/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="{% static 'js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript">
+    $('[data-toggle="tooltip"]').tooltip(); 
+</script>
+{% block after_html %}{% endblock after_html %}
+</body>
+</html>
