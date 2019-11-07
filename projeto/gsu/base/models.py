@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from base.choice import CAMPUS_CHOICES
+# from base.choice import CAMPUS_CHOICES
 
 class Setor(models.Model):
     nome = models.CharField("Nome do Setor",max_length=100)
@@ -20,7 +20,7 @@ class Setor(models.Model):
 class Usuario(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True, editable=True,  related_name='usuario_set', on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
-    campus = models.CharField(max_length=100,choices=CAMPUS_CHOICES)
+    # campus = models.CharField(max_length=100,choices=CAMPUS_CHOICES)
     setor = models.ForeignKey(Setor, null=True, blank=True,on_delete=models.CASCADE)
 
     def __str__(self):
