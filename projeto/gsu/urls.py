@@ -19,6 +19,6 @@ from gsu.base import views as v
 
 urlpatterns = [
     path('', v.home, name="home"),
-    # path('login/', logar, name='logar'),
+    path('login/', v.logar, name='logar'),
     path('admin/', admin.site.urls),
 ]
