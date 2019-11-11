@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Nov 08 17:21:49 ACT 2019'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Nov 10 23:07:13 ACT 2019'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -260,6 +260,36 @@
                   </UML:StructuralFeature.multiplicity>
                   <UML:StructuralFeature.type>
                     <UML:Class xmi.idref = '-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000867'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A94'
+                  name = 'cpf' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A95'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A96'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A97'
+                  name = 'funcao' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A98'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '-64--88-1-6-3f16f7ce:16e58a34bc3:-8000:0000000000000A99'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
                   </UML:StructuralFeature.type>
                 </UML:Attribute>
               </UML:Classifier.feature>
@@ -483,7 +513,7 @@
       justification="Center"
     >setor</text>
     <group name="Fig1.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[185, 97, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[185, 97, 126, 0]"
          href="-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000867"
          fill="0"
          fillcolor="white"
@@ -497,7 +527,7 @@
       <rectangle name="Fig1.2.0"
         x="185"
         y="97"
-        width="64"
+        width="126"
         height="0"
         fill="0"
         fillcolor="white"
@@ -753,7 +783,7 @@
       justification="Center"
     >usuario</text>
     <group name="Fig2.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[585, 105, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[585, 105, 95, 0]"
          href="-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000868"
          fill="0"
          fillcolor="white"
@@ -767,7 +797,7 @@
       <rectangle name="Fig2.2.0"
         x="585"
         y="105"
-        width="64"
+        width="95"
         height="0"
         fill="0"
         fillcolor="white"
@@ -786,7 +816,7 @@
       strokecolor="black"
     />
     <group name="Fig2.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[585, 128, 142, 100]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[585, 128, 142, 116]"
          href="-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000868"
          fill="0"
          fillcolor="white"
@@ -800,7 +830,7 @@
         x="585"
         y="128"
         width="142"
-        height="100"
+        height="116"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -842,7 +872,7 @@
         x="585"
         y="160"
         width="142"
-        height="22"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -854,10 +884,42 @@
         textsize="12"
         justification="Left"
       >setor_id : setor</text>
+      <text name="Fig2.4.4"
+        x="585"
+        y="176"
+        width="142"
+        height="16"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >cpf : String</text>
+      <text name="Fig2.4.5"
+        x="585"
+        y="192"
+        width="142"
+        height="22"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >funcao : String</text>
     </group>
     <rectangle name="Fig2.5"
       x="584"
-      y="228"
+      y="244"
       width="144"
       height="1"
       fill="1"
@@ -866,7 +928,7 @@
       strokecolor="black"
     />
     <group name="Fig2.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[585, 229, 142, 65]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[585, 245, 142, 49]"
          href="-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000868"
          fill="0"
          fillcolor="white"
@@ -878,9 +940,9 @@
       
       <rectangle name="Fig2.6.0"
         x="585"
-        y="229"
+        y="245"
         width="142"
-        height="65"
+        height="49"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -927,7 +989,7 @@
       justification="Center"
     >servico</text>
     <group name="Fig3.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[377, 353, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[377, 353, 130, 0]"
          href="-84-18-119-3--5a2a25d:16e4cbf6f7f:-8000:0000000000000869"
          fill="0"
          fillcolor="white"
@@ -941,7 +1003,7 @@
       <rectangle name="Fig3.2.0"
         x="377"
         y="353"
-        width="64"
+        width="130"
         height="0"
         fill="0"
         fillcolor="white"
