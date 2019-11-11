@@ -25,7 +25,7 @@ class Servico(models.Model):
     titulo = models.CharField(max_length=100)
     setor = models.ForeignKey(Setor, on_delete=models.CASCADE)
     descricao = models.TextField('Descrição', blank=False)
-    documentos = models.CharField('Documentos')
+    documentos = models.CharField('Documentos', max_length=250)
 
     class Meta:
         verbose_name = 'Serviço'
