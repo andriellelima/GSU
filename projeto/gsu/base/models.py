@@ -37,13 +37,13 @@ class Servico(models.Model):
 
 
 class Usuario(models.Model):
-    usuario = models.ForeignKey(User, null=True, blank=True, editable=True,  related_name='usuario_set', on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, null=True, blank=True, editable=True,
+    related_name='usuario_set', on_delete=models.CASCADE)
     setor = models.ForeignKey(Setor, null=True, blank=True,on_delete=models.CASCADE)
     cpf = models.CharField('CPF', max_length=11)
     matricula = models.CharField('Matrícula', max_length=15)
     funcao = models.CharField('Função', max_length=50)
-    # nome = models.CharField(max_length=100)
-    # campus = models.CharField(max_length=100,choices=CAMPUS_CHOICES)
+
 
     class Meta:
         verbose_name = 'Usuario'

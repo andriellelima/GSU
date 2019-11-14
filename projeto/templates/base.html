@@ -4,7 +4,7 @@
 <head lang="pt-br">
     {% load staticfiles %}
     <meta charset="UTF-8">
-    <title>G.S.U</title>
+    <title>Guia de Serviços da UFAC</title>
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
@@ -41,7 +41,7 @@
                     <a class="nav-link active dropdown-toggle" id="links_user" href="#" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">{{ user }}</a>
                     <div class="dropdown-menu" aria-labelledby="links_user">
-                        {#  <a class="dropdown-item" href="{% url 'alterar_senha' %}"><i class="fa fa-cog"></i> Alterar Senha</a> #}
+                        {#  <a class="dropdown-item" href="{% url 'base:alterar_senha' %}"><i class="fa fa-cog"></i> Alterar Senha</a> #}
                         <!--                        <div class="dropdown-divider"></div>-->
                         <a class="dropdown-item" href="{% url 'logar' %}"><i class="fa fa-sign-out"></i> Sair</a>
                     </div>
@@ -60,7 +60,10 @@
         </div>
 
     </nav>
-    <div class="container">{% block conteudo %}{% endblock %}</div>
+    <div class="container">
+        {% block conteudo %}
+        {% endblock %}
+    </div>
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="http://sistemas.ufac.br/estatico/basic/jquery-1.11.0.js"></script>
@@ -81,7 +84,8 @@
     <script type="text/javascript">
         $('[data-toggle="tooltip"]').tooltip(); 
     </script>
-    {% block after_html %}{% endblock after_html %}
+    {% block javascript %}
+    {% endblock javascript %}
 </body>
 
 </html>
