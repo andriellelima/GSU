@@ -38,8 +38,16 @@ def sair(request):
     logout(request)
     return redirect('logar')
 
+def list_setor(request):
+    setor = Setor.objects.all()
+    return render(request,"home.html",{"setores":setor})
 
-def servico_list(request):
+def list_servicos(request,setor_id):
+    servico = Servico.objects.filter(setor__id=setor_id)
+    return render(request,"servicos.html",{"servicos":servico})
+
+
+def servico_pesquisa(request):
     template_name = 'produto_list.html'
     servico_list = Servico.objects.all()
     search = request.GET.get('search')

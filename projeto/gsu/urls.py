@@ -18,7 +18,8 @@ from django.urls import path
 from gsu.base import views as v
 
 urlpatterns = [
-    path('', v.home, name="home"),
+    path('', v.list_setor, name="list_setor"),
+    path('servico/<int:setor_id>', v.list_servicos, name="list_servicos_id"),
     path('login/', v.logar, name='logar'),
     path('setor/',v.setor,name='setor'),
     path('admin/', admin.site.urls),

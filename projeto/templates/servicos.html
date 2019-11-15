@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<h4><b>Setor:</b> {{servico.setor.nome}}</h4>
+
+{% for servico in servicos %}
+    <div class="alert alert-dark" role="alert">
+        <h5> <b>Serviço:</b> {{ servico.titulo }} </h5>
+    </div>
+    <h5>{{servico.descricao}}</h5>
+    <h5>Documentos: {{servico.documentos}}</h5>
+{% endfor %}
+
+
+{% endblock %}
