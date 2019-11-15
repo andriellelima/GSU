@@ -38,12 +38,3 @@ def sair(request):
     logout(request)
     return redirect('logar')
 
-
-def servico_list(request):
-    template_name = 'produto_list.html'
-    servico_list = Servico.objects.all()
-    search = request.GET.get('search')
-    if search:
-        servico_list = servico_list.filter(descricao__icontains=search)
-    context = {'servicos': servico_list}
-    return render(request, template_name, context)
