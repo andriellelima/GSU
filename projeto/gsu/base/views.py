@@ -38,6 +38,7 @@ def sair(request):
     logout(request)
     return redirect('logar')
 
+<<<<<<< HEAD
 def list_setor(request):
     setor = Setor.objects.all()
     return render(request,"home.html",{"setores":setor})
@@ -55,3 +56,5 @@ def servico_pesquisa(request):
         servico_list = servico_list.filter(descricao__icontains=search)
     context = {'servicos': servico_list}
     return render(request, template_name, context)
+=======
+>>>>>>> 30111bdd7534652cd076573deebd27f03ee10f9a
