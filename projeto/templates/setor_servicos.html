@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading"><b>{{ setor.nome}} </b></h4>
+    <p> {{ setor.descricao }}</p>
+    <hr>
+</div>
+<br>
+{% if diretoria_list %}
+<div class="table-responsive">
+    <table class="table" class="table table-bordered">
+        <thead>
+            <tr class="table-warning">
+                <th scope="col">Diretorias</th>
+                <th scope="col">Responsável</th>
+                <th scope="col">Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diretoria in diretoria_list %}
+            <tr class="table-light">
+                <td>{{ diretoria.nome }}</td>
+                <td>{{ diretoria.responsavel }}</td>
+                <td>{{ diretoria.telefone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+<br>
+<center>
+    <h2>
+        <b>
+            <div class="p-3 mb-2 bg-warning text-white">Serviços</div>
+        </b>
+    </h2>
+</center>
+<!-- <div class="container"> -->
+<div class="row">
+    {% for servico in servico_list %}
+    <div class="col-sm">
+        <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
+            <div class="card-header">{{ servico.tipo }}</div>
+            <div class="card-body">
+                <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
+                <p class="card-text">{{ servico.descricao }}</p>
+                <!-- Botão para acionar modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal{{servico.pk}}">
+                    Ver detalhes
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Modal -->
+    {% for servico in servico_list %}
+    <div class="modal fade" id="modal{{servico.pk}}" tabindex="-1" role="dialog"
+        aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado">{{ servico.titulo }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="card-text">Descrição: {{ servico.descricao }}</p>
+                    <p class="card-text">Documentos: {{ servico.documentos }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <!-- <button type="button" class="btn btn-primary">Salvar mudanças</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- </div> -->
+
+{% endblock %}

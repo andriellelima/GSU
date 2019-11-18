@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from gsu.setor import views as v
 
+app_name = 'setor'
+
 urlpatterns = [
-    path('setor/',v.setor,name='setor'),
+    path('',v.list_setor,name='setor'),
+    path('setor/<int:setor_id>', v.setor_servicos, name="setor_servicos"),
 ]

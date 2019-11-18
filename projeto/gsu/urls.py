@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from gsu.base import views as v
+from django.urls import path, include
+# from gsu.base import views as v
+# from gsu.setor import views as vs
+
 
 urlpatterns = [
-    path('', v.list_setor, name="list_setor"),
-    path('servico/<int:setor_id>', v.list_servicos, name="list_servicos_id"),
-    path('login/', v.logar, name='logar'),
-    path('setor/',v.setor,name='setor'),
+    path('', include('gsu.base.urls')),
+    path('setores/', include('gsu.setor.urls')),
+    # path('', vs.list_setor, name="list_setor"),
     path('admin/', admin.site.urls),
 ]
