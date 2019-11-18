@@ -1,11 +1,26 @@
 from django.shortcuts import render
 from .models import Servico, Setor, Diretoria
-
+from django.db.models import Q
 
 # Create your views here.
+def proaes(request):
+    return render(request, 'proaes.html')
+
 def list_setor(request):
-    setor = Setor.objects.all()
-    return render(request,"home.html",{"setores":setor})
+    setor_list = Setor.objects.all()
+    template_name='home.html'
+    context={"setores":setor_list}
+    search = request.GET.get('search')
+    if search:
+        servico_list = Servico.objects.filter(
+            Q(titulo__contains=search) |
+            Q(tipo__contains=search) |
+            Q(descricao__contains=search)
+        )
+        template_name='home_search.html'
+        context={'servico_list': servico_list}
+        # setor_list = Setor.objects.filter()
+    return render(request,template_name, context)
 
 
 def servico_pesquisa(request):
