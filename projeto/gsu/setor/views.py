@@ -17,9 +17,19 @@ def list_setor(request):
             Q(tipo__contains=search) |
             Q(descricao__contains=search)
         )
+        if len(servico_list) == 0:
+            busca = Q()
+            ignorar = ["a","de","para","e","o","quem","onde","que"]
+            for palavra in search.split(" "):
+                print (palavra)
+                if palavra.lower() in ignorar:
+                    busca = Q(titulo__contains=search) | Q(tipo__contains=search) | Q(descricao__contains=search)
+
+            servico_list = Servico.objects.filter(busca)
+
         template_name='home_search.html'
         context={'servico_list': servico_list}
-        # setor_list = Setor.objects.filter()
+        # setor_list = Setor.objects.filter()""
     return render(request,template_name, context)
 
 
