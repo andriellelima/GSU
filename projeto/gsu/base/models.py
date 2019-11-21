@@ -19,3 +19,16 @@ class Usuario(models.Model):
         
     def __str__(self):
         return self.user.name
+
+class Sugestao(models.Model):
+    titulo = models.CharField('Titulo', max_length=50)
+    email = models.CharField('E-mail para contato', max_length=50, null=True, blank=True)
+    descricao = models.TextField('Descrição')
+
+    class Meta:
+        verbose_name = 'Sugestão'
+        verbose_name_plural = 'Sugestões'
+        ordering = ['titulo']
+        
+    def __str__(self):
+        return self.titulo

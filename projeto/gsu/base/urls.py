@@ -20,6 +20,7 @@ from gsu.base import views as v
 app_name = 'base'
 
 urlpatterns = [
+    path('',v.home,name='home'),
     path('login/', v.logar, name='login'),
-    # path('setor/',v.setor,name='setor'),
+    path('sugestao/', v.sugestao, name='sugestao')
 ]

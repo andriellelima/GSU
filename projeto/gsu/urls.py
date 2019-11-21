@@ -20,7 +20,7 @@ from gsu.setor import views as vs
 
 
 urlpatterns = [
-    path('', include('gsu.setor.urls')),
-    path('user/', include('gsu.base.urls')),
+    path('', include('gsu.base.urls')),
+    path('setores/', include('gsu.setor.urls')),
     path('admin/', admin.site.urls),
 ]

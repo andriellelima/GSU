@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>GSU</title>
+      <title>Guia de Serviços da UFAC</title>
       <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagens/logo_ufac.png' %}">
       <!-- Custom fonts for this theme -->
       <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -24,7 +24,7 @@
     <div class="container">
       <span class="pull-right">
           <img src="{% static 'img/logo.png' %}">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top">Guia de Serviços</a>
+          <a class="navbar-brand js-scroll-trigger" href="{% url 'base:home' %}">Guia de Serviços</a>
       </span>
 
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'setor:setores' %}"> Lista de Setores </a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sugestões</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'base:sugestao' %}">Sugestões</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Sobre</a>

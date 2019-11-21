@@ -21,8 +21,7 @@ from gsu.setor.views import setores
 app_name = 'setor'
 
 urlpatterns = [
-    path('',v.list_setor,name='setor'),
+    path('',setores,name="setores"),
     path('setor/<int:setor_id>', v.setor_servicos, name="setor_servicos"),
     path('proaes/',v.proaes,name='proaes'),
-    path('setores/',setores,name="setores"),
 ]
