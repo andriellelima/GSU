@@ -52,3 +52,6 @@ def setor_servicos(request, setor_id):
     return render(request, template_name, context)
 
 
+def setores (request):
+    setor = Setor.objects.all()
+    return render(request,"list_setores.html", {"setores": setor})

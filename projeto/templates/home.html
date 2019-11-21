@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block conteudo %}
-<div class="row">
-  <div class="cols">
-    <form action="." method="GET" class="form-inline">
-      <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
-      <input type="submit" class="btn btn-primary btn-round" value="Pesquisar">
-    </form>
-    <br>
+
+
+
+<center>
     <div class="row">
-      {% for setor in setores %}
-      <div class="col-sm">
-        <div class="card h-100 text-white bg-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header">
-            <h5>{{ setor.nome }} </h5>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              <b>Responsável: </b> {{ setor.reponsavel }} <br>
-              <b>Endereço:</b> bloco {{ setor.bloco }}, andar {{setor.andar}} {{ setor.sala }} <br>
-              <b>Telefone:</b> {{ setor.telefone}} <br>
-              <b>E-mail:</b> {{setor.email}} <br>
-              <b>Horário de atendimento:</b> {{ setor.horario }}<br>
-              <a href="{% url 'setor:setor_servicos' setor.id %}" class="btn btn-success">Mostrar Serviços</a>
-            </p>
-          </div>
-        </div>
+      <div class="cols">
+        <form action="." method="GET" class="form-inline">
+          <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
+          <input type="submit" class="btn btn-primary btn-round" value="Pesquisar">
+        </form>
+        <br>
       </div>
-      {% endfor %}
     </div>
-  </div>
+</center>
+<h5>Neste Sistema:</h5>
+<div class="alert alert-dark" role="alert">
+  Contém as principais informações dos setores da UFAC
 </div>
 
+<div class="alert alert-success" role="alert">
+  Detalhamento dos serviços disponibilizados
+</div>
+<div class="alert alert-warning" role="alert">
+  Localização e forma de contato com os Setores
+</div>
+<div class="alert alert-info" role="alert">
+   Você tem a opção de visualizar todos os setores com suas informações ou pesquisar pelo desejado
+</div>
+<div class="alert alert-danger" role="alert">
+  Atenção! Esse serviço apenas divulga informação não resolvendo nada
+</div>
 {% endblock %}

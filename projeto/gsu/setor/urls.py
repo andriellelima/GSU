@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from gsu.setor import views as v
+from gsu.setor.views import setores
 
 app_name = 'setor'
 
@@ -23,4 +24,5 @@ urlpatterns = [
     path('',v.list_setor,name='setor'),
     path('setor/<int:setor_id>', v.setor_servicos, name="setor_servicos"),
     path('proaes/',v.proaes,name='proaes'),
+    path('setores/',setores,name="setores"),
 ]

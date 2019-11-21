@@ -1,0 +1,31 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block conteudo %}
+
+
+<br><br><br><br><br>
+
+    <div class="row">
+      {% for setor in setores %}
+      <div class="col-sm">
+        <div class="card h-100 text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">
+            <h5>{{ setor.nome }} </h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <b>Responsável: </b> {{ setor.reponsavel }} <br>
+              <b>Endereço:</b> bloco {{ setor.bloco }}, andar {{setor.andar}} {{ setor.sala }} <br>
+              <b>Telefone:</b> {{ setor.telefone}} <br>
+              <b>E-mail:</b> {{setor.email}} <br>
+              <b>Horário de atendimento:</b> {{ setor.horario }}<br>
+              <a href="{% url 'setor:setor_servicos' setor.id %}" class="btn btn-success">Mostrar Serviços</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
+{% endblock %}
