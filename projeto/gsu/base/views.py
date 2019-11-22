@@ -16,6 +16,43 @@ def sugestao(request):
     return render(request, 'sugestao.html', {'form':form})
 
 
+# def home(request):
+#     setor_list = Setor.objects.all()
+#     template_name='home.html'
+#     context={"setores":setor_list}
+#     search = request.GET.get('search')
+#     if search:
+#         servico_list = Servico.objects.filter(
+#             Q(titulo__contains=search) |
+#             Q(tipo__contains=search) |
+#             Q(descricao__contains=search)
+#         )
+#         if len(servico_list) == 0:
+#             busca = Q()
+#             ignorar = ["a","de","para","e","o","quem","onde","que"]
+#             for palavra in search.split(" "):
+#                 print (palavra)
+#                 if palavra.lower() in ignorar:
+#                     busca = Q(titulo__contains=search) | Q(tipo__contains=search) | Q(descricao__contains=search)
+#             servico_list = Servico.objects.filter(busca)
+#             # print (busca)
+#             # if len(busca) > 0:
+#             #     servico_list = Servico.objects.filter(busca)
+#             #     template_name = 'home_search.html'
+#             #     context = {'servico_list': servico_list}
+#             #     return render(request, template_name, context)
+#             # else:
+#                 # busca is None
+#                 # servico_list = Servico.objects.filter(busca)
+#                 # template_name = 'home_search.html'
+#                 # context = {'servico_list': servico_list}
+#                 # return render(request, template_name, context)
+#
+#
+#     template_name = 'home_search.html'
+#     context = {'servico_list': servico_list}
+#     return render(request, template_name, context)
+
 def home(request):
     setor_list = Setor.objects.all()
     template_name='home.html'
@@ -27,19 +64,18 @@ def home(request):
             Q(tipo__contains=search) |
             Q(descricao__contains=search)
         )
-        # if len(servico_list) == 0:
-        #     busca = Q()
-        #     ignorar = ["a","de","para","e","o","quem","onde","que"]
-        #     for palavra in search.split(" "):
-        #         print (palavra)
-        #         if palavra.lower() in ignorar:
-        #             busca = Q(titulo__contains=search) | Q(tipo__contains=search) | Q(descricao__contains=search)
+        if len(servico_list) == 0:
+            busca = Q()
+            ignorar = ["a","de","para","e","o","quem","onde","que"]
+            for palavra in search.split(" "):
+                print (palavra)
+                if palavra.lower() in ignorar:
+                    busca = Q(titulo__contains=search) | Q(tipo__contains=search) | Q(descricao__contains=search)
 
-        #     servico_list = Servico.objects.filter(busca)
+            servico_list = Servico.objects.filter(busca)
 
         template_name='home_search.html'
         context={'servico_list': servico_list}
-        # setor_list = Setor.objects.filter()""
     return render(request,template_name, context)
 
 def logar(request):

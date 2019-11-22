@@ -2,9 +2,7 @@ from django.shortcuts import render
 from .models import Servico, Setor, Diretoria
 from django.db.models import Q
 
-# Create your views here.
-def proaes(request):
-    return render(request, 'proaes.html')
+
 
 
 def servico_pesquisa(request):
