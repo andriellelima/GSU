@@ -12,13 +12,15 @@ def sugestao(request):
     form = SugestaoForm(request.POST or None)
     if form.is_valid():
         form.save()
+        
         return redirect('base:home')
     search = request.GET.get('search')
     if search:
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
             Q(tipo__contains=search) |
-            Q(descricao__contains=search)
+            Q(descricao__contains=search) |
+            Q(setor__nome__contains=search)
         )
         template_name='home_search.html'
         context={'servico_list': servico_list}
@@ -35,7 +37,8 @@ def home(request):
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
             Q(tipo__contains=search) |
-            Q(descricao__contains=search)
+            Q(descricao__contains=search) |
+            Q(setor__nome__contains=search)
         )
         # if len(servico_list) == 0:
         #     busca = Q()

@@ -5,7 +5,7 @@ from gsu.setor.models import Setor, Servico
 
 
 class Usuario(models.Model):
-    usuario = models.ForeignKey(User, null=True, blank=True, editable=True,
+    usuario = models.OneToOneField(User, null=True, blank=True, editable=True,
     related_name='usuario_set', on_delete=models.CASCADE)
     setor = models.ForeignKey(Setor, null=True, blank=True,on_delete=models.CASCADE)
     cpf = models.CharField('CPF', max_length=11)

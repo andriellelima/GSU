@@ -11,12 +11,14 @@
             {% for servico in servico_list %}
             <div class="col-sm">
                 <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
+                    <a class="btn-primary" href="{% url 'setor:setor_servicos' servico.setor.id %}">
                         <div class="card-header">{{ servico.setor }}</div>
-                        <div class="card-body">
-                            <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
-                            <p class="card-text">{{ servico.descricao }}</p>
-                            <!-- Botão para acionar modal -->
-                            <button type="button" class="btn btn-success" data-toggle="modal"
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
+                        <p class="card-text">{{ servico.descricao }}</p>
+                        <!-- Botão para acionar modal -->
+                        <button type="button" class="btn btn-success" data-toggle="modal"
                             data-target="#modal{{servico.pk}}">
                             Ver detalhes
                         </button>
@@ -28,13 +30,15 @@
             <!-- Modal -->
             {% for servico in servico_list %}
             <div class="modal fade" id="modal{{servico.pk}}" tabindex="-1" role="dialog"
-            aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="TituloModalCentralizado">{{ servico.setor }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
+                aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a href="{% url 'setor:setor_servicos' servico.setor.id %}">
+                                <h5 class="modal-title" id="TituloModalCentralizado">{{ servico.setor }}</h5>
+                            </a>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
@@ -50,7 +54,7 @@
             {% endfor %}
         </div>
         {% else %}
-            <p class="alert alert-warning">Desculpe, pesquisa não encontrada.</p>
+        <p class="alert alert-warning">Desculpe, pesquisa não encontrada.</p>
         {% endif %}
     </div>
 </div>
