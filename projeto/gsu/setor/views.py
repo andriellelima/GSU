@@ -15,7 +15,8 @@ def setor_servicos(request, setor_id):
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
             Q(tipo__contains=search) |
-            Q(descricao__contains=search)
+            Q(descricao__contains=search) |
+            Q(setor__nome__contains=search)
         )
         template_name='home_search.html'
         context={'servico_list': servico_list}
@@ -30,7 +31,8 @@ def setores (request):
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
             Q(tipo__contains=search) |
-            Q(descricao__contains=search)
+            Q(descricao__contains=search) |
+            Q(setor__nome__contains=search)
         )
         template_name='home_search.html'
         context={'servico_list': servico_list}
