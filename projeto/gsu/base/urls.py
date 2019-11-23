@@ -24,5 +24,6 @@ urlpatterns = [
     path('login/', v.logar, name='login'),
     path('logout/', v.sair, name='logout'),
     path('gerenciar/', v.gerenciar, name='gerenciar'),
-    path('sugestao/', v.sugestao, name='sugestao')
+    path('sugestao/', v.sugestao, name='sugestao'),
+    path('sobre/', v.sobre, name='sobre')
 ]

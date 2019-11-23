@@ -27,6 +27,8 @@ def sugestao(request):
         return render(request, template_name, context)
     return render(request, 'sugestao.html', {'form':form})
 
+def sobre(request):
+    return render(request,'sobre.html')
 
 def home(request):
     setor_list = Setor.objects.all()
