@@ -5,33 +5,18 @@
 <br><br><br><br><br>
 <div class="row">
     <div class="cols">
-        <!-- <form action="." method="GET" class="form-inline">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
-            <input type="submit" class="btn btn-primary btn-round" value="Pesquisar">
-        </form> -->
         <br>
-
-
         {% if  servico_list  %}
         <div class="row">
             {% for servico in servico_list %}
             <div class="col-sm">
                 <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
-<<<<<<< HEAD
-                    <div class="card-header">{{ servico.tipo }}</div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
-                        <p class="card-text">{{ servico.descricao }}</p>
-                        <!-- Botão para acionar modal -->
-                        <button type="button" class="btn btn-success" data-toggle="modal"
-=======
                         <div class="card-header">{{ servico.setor }}</div>
                         <div class="card-body">
                             <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
                             <p class="card-text">{{ servico.descricao }}</p>
                             <!-- Botão para acionar modal -->
                             <button type="button" class="btn btn-success" data-toggle="modal"
->>>>>>> 0b34659037861bed804fcd71eaf253739ea6c8ab
                             data-target="#modal{{servico.pk}}">
                             Ver detalhes
                         </button>
@@ -66,7 +51,6 @@
         </div>
         {% else %}
             <p class="alert alert-warning">Desculpe, pesquisa não encontrada.</p>
-
         {% endif %}
     </div>
 </div>

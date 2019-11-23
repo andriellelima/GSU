@@ -22,5 +22,7 @@ app_name = 'base'
 urlpatterns = [
     path('',v.home,name='home'),
     path('login/', v.logar, name='login'),
+    path('logout/', v.sair, name='logout'),
+    path('gerenciar/', v.gerenciar, name='gerenciar'),
     path('sugestao/', v.sugestao, name='sugestao')
 ]

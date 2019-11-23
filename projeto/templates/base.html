@@ -21,49 +21,59 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <img src="{% static 'img/logo.png' %}">
-    <a class="navbar-brand js-scroll-trigger" href="{% url 'base:home' %}">Guia de Serviços</a>
-
-    <div class="container">
-      <!-- <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
-        type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button> -->
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <form action="." method="GET" class="form-inline">
-          <div class="input-group">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
-            <button type="submit" class="btn btn-primary">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </form>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'setor:setores' %}"> Lista de Setores </a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:sugestao' %}">Sugestões</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3" href="#contact">Sobre</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3" href="#">Olá, {{ user }}</a>
-            <!-- <div class="dropdown-menu" aria-labelledby="links_user">
-              <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Alterar Senha</a>
-              <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Sair</a>
-            </div> -->
+    <span class="pull-left">
+      <img src="{% static 'img/logo.png' %}">
+      <a class="navbar-brand" href="{% url 'base:home' %}">Guia de Serviços</a>
+    </span>
+    <div class="pull-right">
+      <div class="container">
+        <button
+          class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+          type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+          aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <form method="GET" class="form-inline">
+            <div class="input-group">
+              <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'setor:setores' %}"> Lista de Setores </a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:sugestao' %}">Sugestões</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3" href="#contact">Sobre</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item mx-0 mx-lg-1">
+              <div class="dropdown">
+                <a class="nav-link py-3 px-0 px-lg-3 dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  {{ user }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{% url 'base:gerenciar' %}">Gerenciar</a>
+                  <a class="dropdown-item" href="#">Alterar senha</a>
+                  <a class="dropdown-item" href="{% url 'base:logout' %}">Sair</a>
+                </div>
+              </div>
+            </li>
             {% else %}
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:login' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
