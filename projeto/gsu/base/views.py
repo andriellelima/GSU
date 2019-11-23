@@ -13,6 +13,16 @@ def sugestao(request):
     if form.is_valid():
         form.save()
         return redirect('base:home')
+    search = request.GET.get('search')
+    if search:
+        servico_list = Servico.objects.filter(
+            Q(titulo__contains=search) |
+            Q(tipo__contains=search) |
+            Q(descricao__contains=search)
+        )
+        template_name='home_search.html'
+        context={'servico_list': servico_list}
+        return render(request, template_name, context)
     return render(request, 'sugestao.html', {'form':form})
 
 
@@ -44,7 +54,7 @@ def home(request):
 
 def logar(request):
     if request.user.is_authenticated:
-        return redirect('setor:setor')
+        return redirect('base:home')
     if request.method == 'POST':
         usuario = request.POST['usuario']
         #usuario = usuario.replace('.','').replace('-','')
@@ -55,33 +65,12 @@ def logar(request):
                 login(request, user)
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
-                return redirect('setor:setor')
+                return redirect('/admin')
             else:
                 messages.error(request, 'Usuário inativo')
         else:
             messages.error(request, 'CPF ou senha inválidos!')
     return render(request, 'login.html', locals())
-
-
-# def logar(request):
-#     if request.user.is_authenticated:
-#         return redirect('core:index')
-#     if request.method == 'POST':
-#         usuario = request.POST['usuario']
-#         usuario = usuario.replace('.', '').replace('-', '')
-#         senha = request.POST['senha']
-#         user = authenticate(username=usuario, password=senha)
-#         if user is not None:
-#             if user.is_active:
-#                 login(request, user)
-#                 if request.GET.get('next'):
-#                     return redirect(request.GET.get('next'))
-#                 return redirect('core:index')
-#             else:
-#                 messages.error(request, 'Usuário inativo')
-#         else:
-#             messages.error(request, 'CPF ou senha inválidos!')
-#     return render(request, 'login/login.html', locals())
 
 
 def sair(request):
