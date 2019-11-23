@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Servico, Setor, Diretoria
 from django.db.models import Q
 
-# Create your views here.
-def proaes(request):
-    return render(request, 'proaes.html')
+
 
 def setor_servicos(request, setor_id):
     template_name = 'setor_servicos.html'

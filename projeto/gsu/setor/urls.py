@@ -23,5 +23,5 @@ app_name = 'setor'
 urlpatterns = [
     path('',setores,name="setores"),
     path('setor/<int:setor_id>', v.setor_servicos, name="setor_servicos"),
-    path('proaes/',v.proaes,name='proaes'),
+
 ]
