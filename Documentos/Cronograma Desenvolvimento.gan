@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="GSU-Guia de Serviços UFAC" company="" webLink="http://" view-date="2020-11-22" view-index="0" gantt-divider-location="528" resource-divider-location="300" version="2.8.11" locale="pt_BR">
+<?xml version="1.0" encoding="UTF-8"?><project name="GSU-Guia de Serviços UFAC" company="" webLink="http://" view-date="2020-11-15" view-index="0" gantt-divider-location="528" resource-divider-location="300" version="2.8.11" locale="en_US">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
-        <field id="tpd3" name="Nome" width="304" order="0"/>
-        <field id="tpd4" name="Data inicial" width="87" order="1"/>
-        <field id="tpd5" name="Data final" width="133" order="2"/>
-        <timeline><![CDATA[10]]></timeline>
-        <option id="color.recent"><![CDATA[#0000ff #ff33ff #990000 #cc9900 #006666 #9933ff #00ffff #3366ff]]></option>
+        <field id="tpd3" name="Name" width="304" order="0"/>
+        <field id="tpd4" name="Begin date" width="87" order="1"/>
+        <field id="tpd5" name="End date" width="133" order="2"/>
+        <timeline>
+            <![CDATA[10]]>
+        </timeline>
+        <option id="color.recent">
+            <![CDATA[#0000ff #ff33ff #990000 #cc9900 #006666 #9933ff #00ffff #3366ff]]>
+        </option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Nome" width="206" order="0"/>
-        <field id="1" name="Função" width="90" order="1"/>
+        <field id="0" name="Name" width="206" order="0"/>
+        <field id="1" name="Default role" width="90" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -35,26 +39,49 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="44" name="Consolidado" meeting="false" start="2019-09-18" duration="48" complete="0" expand="true">
-            <task id="10" name="Documentação dos Requisitos" color="#8cb6ce" meeting="false" start="2019-09-18" duration="39" complete="0" thirdDate="2020-11-13" thirdDate-constraint="0" priority="2" expand="true"/>
-            <task id="13" name="Casos de Usos" color="#3366ff" meeting="false" start="2019-10-01" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-            <task id="16" name="Modelagem do Banco de Dados" color="#00ffff" meeting="false" start="2019-10-07" duration="10" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="false">
-                <task id="25" name="Diagrama de Entidade Relacionamento" color="#00ffff" meeting="false" start="2019-10-07" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-                <task id="24" name="Diagrama de Classes" color="#00ffff" meeting="false" start="2019-10-14" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
+        <task id="44" name="Consolidado" meeting="false" start="2019-09-18" duration="63" complete="0" expand="true">
+            <depend id="42" type="2" difference="0" hardness="Strong"/>
+            <depend id="107" type="2" difference="0" hardness="Strong"/>
+            <task id="10" name="Documentação dos Requisitos" color="#8cb6ce" meeting="false" start="2019-09-18" duration="39" complete="0" thirdDate="2020-11-13" thirdDate-constraint="0" priority="2" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="19" name="Protótipagem" color="#9933ff" meeting="false" start="2019-10-21" duration="6" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-            <task id="26" name="Codificação" color="#006666" meeting="false" start="2019-11-04" duration="15" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="false">
-                <task id="41" name="Implementação do Front-End" color="#8cb6ce" meeting="false" start="2019-11-04" duration="14" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-                <task id="32" name="Módulo Login e Autentificação" color="#8cb6ce" meeting="false" start="2019-11-11" duration="3" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="true"/>
-                <task id="35" name="CRUD Setor" color="#8cb6ce" meeting="false" start="2019-11-12" duration="4" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-                <task id="36" name="CRUD Serviço" color="#8cb6ce" meeting="false" start="2019-11-12" duration="4" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
-                <task id="38" name="Módulo de Pesquisa" color="#8cb6ce" meeting="false" start="2019-11-18" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="4" expand="true"/>
+            <task id="13" name="Casos de Usos" color="#3366ff" meeting="false" start="2019-10-01" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="122" name="Testes" color="#cc9900" meeting="false" start="2019-11-18" duration="5" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+            <task id="16" name="Modelagem do Banco de Dados" color="#00ffff" meeting="false" start="2019-11-12" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="true">
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
+                <task id="25" name="Diagrama de Entidade Relacionamento" color="#00ffff" meeting="false" start="2019-11-12" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true">
+                    <depend id="32" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="24" name="Diagrama de Classes" color="#00ffff" meeting="false" start="2019-11-12" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true">
+                    <depend id="32" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="19" name="Protótipagem" color="#9933ff" meeting="false" start="2019-11-12" duration="6" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="26" name="Codificação" color="#006666" meeting="false" start="2019-11-19" duration="14" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true">
+                <depend id="46" type="2" difference="0" hardness="Strong"/>
+                <depend id="47" type="2" difference="0" hardness="Strong"/>
+                <depend id="122" type="2" difference="0" hardness="Strong"/>
+                <task id="41" name="Implementação do Front-End" color="#8cb6ce" meeting="false" start="2019-11-19" duration="14" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true">
+                    <depend id="107" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="32" name="Módulo Login e Autentificação" color="#8cb6ce" meeting="false" start="2019-11-19" duration="3" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="true"/>
+                <task id="35" name="CRUD Setor" color="#8cb6ce" meeting="false" start="2019-11-19" duration="4" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
+                <task id="36" name="CRUD Serviço" color="#8cb6ce" meeting="false" start="2019-11-19" duration="4" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
+                <task id="38" name="Módulo de Pesquisa" color="#8cb6ce" meeting="false" start="2019-11-19" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="4" expand="true"/>
+            </task>
+            <task id="122" name="Testes" color="#cc9900" meeting="false" start="2019-12-09" duration="5" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="42" name="Tentativo" meeting="false" start="2020-12-11" duration="21" complete="0" expand="true">
-            <task id="46" name="Correção de Erros" color="#990000" meeting="false" start="2020-12-11" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="true"/>
-            <task id="107" name="Refatoração do Front-End" color="#ff33ff" meeting="false" start="2020-12-18" duration="12" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="42" name="Tentativo" color="#000000" meeting="false" start="2019-12-16" duration="280" complete="0" thirdDate="2020-12-11" thirdDate-constraint="0" expand="true">
+            <task id="46" name="Correção de Erros" color="#990000" meeting="false" start="2019-12-16" duration="5" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" priority="2" expand="true"/>
+            <task id="107" name="Refatoração do Front-End" color="#ff33ff" meeting="false" start="2019-12-16" duration="12" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
             <task id="47" name="Módulo de Mensagem" color="#0000ff" meeting="false" start="2020-12-22" duration="14" complete="0" thirdDate="2019-12-12" thirdDate-constraint="0" expand="true">
                 <task id="48" name="Documentaçao" color="#8cb6ce" meeting="false" start="2020-12-22" duration="2" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
                 <task id="49" name="Inclusão na Modelagem do Banco de Dados" color="#8cb6ce" meeting="false" start="2020-12-28" duration="3" complete="0" thirdDate="2019-09-16" thirdDate-constraint="0" expand="true"/>
