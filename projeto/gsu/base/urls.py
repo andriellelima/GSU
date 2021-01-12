@@ -25,5 +25,7 @@ urlpatterns = [
     path('logout/', v.sair, name='logout'),
     path('gerenciar/', v.gerenciar, name='gerenciar'),
     path('sugestao/', v.sugestao, name='sugestao'),
-    path('sobre/', v.sobre, name='sobre')
+    path('sobre/', v.sobre, name='sobre'),
+    path('mapa/', v.mapa, name='mapa')
+
 ]

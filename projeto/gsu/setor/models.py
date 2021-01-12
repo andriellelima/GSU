@@ -4,12 +4,10 @@ from django.db import models
 class Setor(models.Model):
     nome = models.CharField('Nome do Setor',max_length=100)
     descricao = models.TextField('Descrição',blank=True)
-    reponsavel = models.CharField('Nome do Resposávek',max_length=100)
-    bloco = models.CharField('Bloco', max_length=50)
-    andar = models.CharField('Andar',max_length=30)
-    sala = models.CharField('Sala',max_length=50)
-    horario = models.CharField('horário de atendimento',max_length=30) #DataTimeField
-    telefone = models.CharField('Telefone',max_length=10) 
+    reponsavel = models.CharField('Nome do Resposável',max_length=100)
+    localizacao = models.CharField('Localizacao(Link Maps)', max_length=500)
+    horario = models.CharField('Horário de atendimento',max_length=30) #DataTimeField
+    telefone = models.CharField('Telefone',max_length=20) 
     email = models.CharField('E-mail',max_length=100)
 
     class Meta:

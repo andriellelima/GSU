@@ -2,17 +2,36 @@
 {% load static %}
 {% block conteudo %}
 <br><br><br><br>
-<div class="alert alert-success" role="alert">
+<div class="alert alert-secondary" role="alert">
     <h4 class="alert-heading"><b>{{ setor.nome}} </b></h4>
     <p> {{ setor.descricao }}</p>
     <hr>
 </div>
 <br>
-<b>Responsável: </b> {{ setor.reponsavel }} <br>
-          <b>Endereço:</b> bloco {{ setor.bloco }}, andar {{setor.andar}} {{ setor.sala }} <br>
-          <b>Telefone:</b> {{ setor.telefone}} <br>
-          <b>E-mail:</b> {{setor.email}} <br>
-          <b>Horário de atendimento:</b> {{ setor.horario }}<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm mt-2">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title">Informações Gerais</h5>
+                <p class="card-text">
+                    <p> <b> Responsável:</b> {{ setor.reponsavel }} </p>
+                    <p> <b>Telefone:</b> {{ setor.telefone}} </p>
+                    <p> <b>E-mail:</b> {{setor.email}} </p>
+                    <p> <b>Horário de atendimento:</b> {{ setor.horario }}</p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <h5 class="text-center">Localização</h5>
+        <iframe src="{{setor.localizacao}}" height="300" width="500" title="Iframe Example"></iframe>
+    </div>
+  </div>
+</div>
+
+
 {% if diretoria_list %}
 <div class="table-responsive">
     <table class="table" class="table table-bordered">
@@ -39,27 +58,22 @@
 <center>
     <h2>
         <b>
-            <div class="p-3 mb-2 bg-warning text-white">Serviços</div>
+            <div class="p-3 mb-2 bg-info text-white">Lista de Serviços</div>
         </b>
     </h2>
 </center>
-<!-- <div class="container"> -->
-<div class="row">
-    {% for servico in servico_list %}
-    <div class="col-sm">
-        <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
-            <div class="card-header">{{ servico.tipo }}</div>
-            <div class="card-body">
-                <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
-                <p class="card-text">{{ servico.descricao }}</p>
-                <!-- Botão para acionar modal -->
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal{{servico.pk}}">
-                    Ver detalhes
-                </button>
-            </div>
+
+<div class="container">
+{% for servico in servico_list %}
+        <div class="alert alert-info d-flex justify-content-between" role="alert">
+            <p> <b> Serviço: </b> {{ servico.titulo }} </p>
+            <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal{{servico.pk}}">
+                Ver detalhes
+            </button>
         </div>
-    </div>
-    {% endfor %}
+{% endfor %}
+</div>
+
 
     <!-- Modal -->
     {% for servico in servico_list %}
@@ -77,20 +91,16 @@
                     <div class="alert alert-warning" role="alert">
                                 <p class="card-text"><b>Descrição:</b> {{ servico.descricao }}</p>
                     </div>
-
-                    <div class="alert alert-info" role="alert">
+                    {% if  servico.documentos %}
+                        <div class="alert alert-info" role="alert">
                               <p class="card-text"><b>Documentos:</b> {{ servico.documentos }}</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <!-- <button type="button" class="btn btn-primary">Salvar mudanças</button> -->
+                        </div>
+                    {% endif %}
+                   
                 </div>
             </div>
         </div>
     </div>
     {% endfor %}
-</div>
-<!-- </div> -->
 
 {% endblock %}

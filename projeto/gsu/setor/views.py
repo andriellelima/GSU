@@ -49,7 +49,8 @@ def setor_servicos(request, setor_id):
         template_name = 'home_search.html'
         context = {'servico_list': servico_list}
         return render(request, template_name, context)
-        # return render(request, template_name, context)
+    return render(request, template_name, context)
+
 
 
 def setores (request):

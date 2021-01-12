@@ -58,6 +58,9 @@ def sugestao(request):
 def sobre(request):
     return render(request,'sobre.html')
 
+def mapa(request):
+    return render(request,'mapa.html')
+
 def home(request):
     setor_list = Setor.objects.all()
     template_name='home.html'
