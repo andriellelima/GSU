@@ -9,5 +9,5 @@ class SugestaoForm(forms.ModelForm):
     descricao = forms.CharField(widget=forms.Textarea(attrs={"class":"form-control"}))
     class Meta:
         model = Sugestao
-        fields = ('titulo', 'email', 'descricao',)
+        fields = ('titulo', 'email', 'descricao')
         

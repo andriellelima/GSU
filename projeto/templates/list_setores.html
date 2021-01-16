@@ -2,11 +2,12 @@
 {% load static %}
 {% block conteudo %}
 
-<br><br><br><br><br>
-<div class="row">
+<br><br>
+<h2 class="text-center"> Lista de Setores </h2>
+<div class="row mt-5">
   {% for setor in setores %}
   <div class="col-6 col-sm-3">
-    <div class="card h-100 text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card h-100 text-white bg-dark mb-3" style="max-width: 20rem;">
       <div class="card-header">
         <h5>{{ setor.nome }} </h5>
       </div>
@@ -16,7 +17,7 @@
           <b>Endereço:</b> bloco {{ setor.bloco }}, andar {{setor.andar}} {{ setor.sala }} <br>
           <b>Telefone:</b> {{ setor.telefone}} <br>
           <b>E-mail:</b> {{setor.email}} <br>
-          <b>Horário de atendimento:</b> {{ setor.horario }}<br>
+          <b>Horário de atendimento:</b> {{ setor.horario_inicio }} até {{ setor.horario_fim}} <br>
           <a href="{% url 'setor:setor_servicos' setor.id %}" class="btn btn-success">Mostrar Serviços</a>
         </p>
       </div>

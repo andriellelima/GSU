@@ -6,7 +6,8 @@ class Setor(models.Model):
     descricao = models.TextField('Descrição',blank=True)
     reponsavel = models.CharField('Nome do Resposável',max_length=100)
     localizacao = models.CharField('Localizacao(Link Maps)', max_length=500)
-    horario = models.CharField('Horário de atendimento',max_length=30) #DataTimeField
+    horario_inicio = models.TimeField()
+    horario_fim = models.TimeField()
     telefone = models.CharField('Telefone',max_length=20) 
     email = models.CharField('E-mail',max_length=100)
 

@@ -22,7 +22,7 @@ class Usuario(models.Model):
 
 class Sugestao(models.Model):
     titulo = models.CharField('Titulo', max_length=50)
-    email = models.CharField('E-mail para contato', max_length=50, null=True, blank=True)
+    email = models.CharField(verbose_name='E-mail para contato', max_length=50, null=True, blank=True)
     descricao = models.TextField('Descrição')
 
     class Meta:

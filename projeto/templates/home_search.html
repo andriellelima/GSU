@@ -3,38 +3,24 @@
 {% block conteudo %}
 
 <br><br><br><br><br>
-<div class="row">
-    <div class="cols">
-        <br>
+
         {% if  servico_list  %}
-        <h3> Lista de Serviços</h3>
+        <h3 class="text-center"> Lista de Serviços</h3>
         <div class="row">
-            {% for servico in servico_list %}
-            <div class="col-sm">
-                <div class="card text-white bg-info mb-3 h-100" style="max-width: 18rem;">
-                    <a class="btn-info" href="{% url 'setor:setor_servicos' servico.setor.id %}">
-                        <div class="card-header">{{ servico.setor }}</div>
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>{{ servico.titulo }}</b></h5>
-<!--                        <p class="card-text">{{ servico.descricao }}</p>-->
-                        <!-- Botão para acionar modal -->
-                        <button type="button" class="btn btn-success" data-toggle="modal"
-                            data-target="#modal{{servico.pk}}">
-                            Ver detalhes
-                        </button>
-                    </div>
+        {% for servico in servico_list %}
+                <div class="alert alert-dark" role="alert">
+                    <a href="{% url 'setor:setor_servicos' servico.setor.id %}" class="alert alert-secondary" role="alert">
+                        <div>{{ servico.setor }}</div>
+                        <h5><b>{{ servico.titulo }}</b></h5> 
+                    </a>    
                 </div>
-            </div>
-            <br><br>
-            {% endfor %}
-            <br>
+        {% endfor %}
         </div>
+
         {% else %}
         <p class="alert alert-warning">Desculpe, pesquisa não encontrada.</p>
         {% endif %}
-    </div>
-</div>
+ 
 
              <!-- Modal -->
             {% for servico in servico_list %}
