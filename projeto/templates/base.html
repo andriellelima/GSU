@@ -43,7 +43,7 @@
               </button>
             </div>
           </form>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'setor:setores' %}"> Setores </a>
             </li>
@@ -53,7 +53,7 @@
             </li>
 
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:sugestao' %}">Sugestões</a>
+              <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:sugestao' %}">Mensagem</a>
             </li>
             
             {% if user.is_authenticated %}

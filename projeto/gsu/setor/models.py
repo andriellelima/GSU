@@ -20,27 +20,12 @@ class Setor(models.Model):
         return self.nome
 
 
-class Diretoria(models.Model):
-    nome = models.CharField('Titulo da diretoria', max_length=50)
-    responsavel = models.CharField('Responsavel', max_length=50)
-    setor = models.ForeignKey(Setor, on_delete=models.CASCADE)
-    telefone = models.CharField('Telefone', max_length=15)
-
-    class Meta:
-        verbose_name = 'Diretoria'
-        verbose_name_plural = 'Diretorias'
-        ordering = ['nome']
-
-    def __str__(self):
-        return self.nome
-
-
 class Servico(models.Model):
     titulo = models.CharField('Titulo',max_length=100)
     setor = models.ForeignKey(Setor, on_delete=models.CASCADE)
-    tipo = models.CharField('Tipo de serviço', max_length=50, null=True, blank=True)
     descricao = models.TextField('Descrição', blank=False)
     documentos = models.CharField('Documentos', max_length=250, null=True, blank=True)
+    informacoes = models.CharField('Mais informações(site UFAC)', max_length=250, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Serviço'

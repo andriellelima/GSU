@@ -32,28 +32,7 @@
 </div>
 
 
-{% if diretoria_list %}
-<div class="table-responsive">
-    <table class="table" class="table table-bordered">
-        <thead>
-            <tr class="table-warning">
-                <th scope="col">Diretorias</th>
-                <th scope="col">Responsável</th>
-                <th scope="col">Telefone</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for diretoria in diretoria_list %}
-            <tr class="table-light">
-                <td>{{ diretoria.nome }}</td>
-                <td>{{ diretoria.responsavel }}</td>
-                <td>{{ diretoria.telefone }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endif %}
+
 <br>
 <center>
     <h2>

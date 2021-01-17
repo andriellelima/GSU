@@ -12,13 +12,12 @@ def sugestao(request):
     form = SugestaoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        
-        return redirect('base:home')
+        messages.success(request, "Mensagem enviada com sucesso!")
+        return redirect('base:sugestao')
     search = request.GET.get('search')
     if search:
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
-            Q(tipo__contains=search) |
             Q(descricao__contains=search) |
             Q(setor__nome__contains=search) |
             Q(setor__descricao__contains=search)
@@ -34,7 +33,6 @@ def sugestao(request):
             for split in search_split:
                 servico = (Servico.objects.filter(
                     Q(titulo__contains=split) |
-                    Q(tipo__contains=split) |
                     Q(descricao__contains=split) |
                     Q(setor__nome__contains=split) |
                     Q(setor__descricao__contains=split)
@@ -69,7 +67,6 @@ def home(request):
     if search:
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
-            Q(tipo__contains=search) |
             Q(descricao__contains=search) |
             Q(setor__nome__contains=search) |
             Q(setor__descricao__contains=search)
@@ -85,7 +82,6 @@ def home(request):
             for split in search_split:
                 servico = (Servico.objects.filter(
                     Q(titulo__contains=split) |
-                    Q(tipo__contains=split) |
                     Q(descricao__contains=split) |
                     Q(setor__nome__contains=split) |
                     Q(setor__descricao__contains=split)

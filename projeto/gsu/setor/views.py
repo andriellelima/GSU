@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Servico, Setor, Diretoria
+from .models import *
 from django.db.models import Q
 
 
@@ -8,13 +8,11 @@ def setor_servicos(request, setor_id):
     template_name = 'setor_servicos.html'
     setor = Setor.objects.get(pk=setor_id)
     servico_list = Servico.objects.filter(setor__id=setor_id)
-    diretoria_list = Diretoria.objects.filter(setor_id = setor_id)
-    context = {'servico_list':servico_list, 'setor': setor, 'diretoria_list': diretoria_list}
+    context = {'servico_list':servico_list, 'setor': setor}
     search = request.GET.get('search')
     if search:
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
-            Q(tipo__contains=search) |
             Q(descricao__contains=search) |
             Q(setor__nome__contains=search) |
             Q(setor__descricao__contains=search)
@@ -30,7 +28,6 @@ def setor_servicos(request, setor_id):
             for split in search_split:
                 servico = (Servico.objects.filter(
                     Q(titulo__contains=split) |
-                    Q(tipo__contains=split) |
                     Q(descricao__contains=split) |
                     Q(setor__nome__contains=split) |
                     Q(setor__descricao__contains=split)
@@ -59,7 +56,6 @@ def setores (request):
     if search:
         servico_list = Servico.objects.filter(
             Q(titulo__contains=search) |
-            Q(tipo__contains=search) |
             Q(descricao__contains=search) |
             Q(setor__nome__contains=search) |
             Q(setor__descricao__contains=search)
@@ -75,7 +71,6 @@ def setores (request):
             for split in search_split:
                 servico = (Servico.objects.filter(
                     Q(titulo__contains=split) |
-                    Q(tipo__contains=split) |
                     Q(descricao__contains=split) |
                     Q(setor__nome__contains=split) |
                     Q(setor__descricao__contains=split)

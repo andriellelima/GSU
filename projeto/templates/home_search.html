@@ -5,20 +5,23 @@
 <br><br><br><br><br>
 
         {% if  servico_list  %}
-        <h3 class="text-center"> Lista de Serviços</h3>
-        <div class="row">
-        {% for servico in servico_list %}
-                <div class="alert alert-dark" role="alert">
-                    <a href="{% url 'setor:setor_servicos' servico.setor.id %}" class="alert alert-secondary" role="alert">
-                        <div>{{ servico.setor }}</div>
-                        <h5><b>{{ servico.titulo }}</b></h5> 
-                    </a>    
-                </div>
-        {% endfor %}
-        </div>
+            <h3 class="text-center"> Resultado da pesquisa</h3>
+            <div class="row">
+            {% for servico in servico_list %}
+                    <div class="alert alert-dark" role="alert">
+                        <a href="{% url 'setor:setor_servicos' servico.setor.id %}" class="alert alert-secondary" role="alert">
+                            <div>{{ servico.setor }}</div>
+                            <h5><b>{{ servico.titulo }}</b></h5> 
+                        </a>    
+                    </div>
+            {% endfor %}
+            </div>
 
         {% else %}
-        <p class="alert alert-warning">Desculpe, pesquisa não encontrada.</p>
+        <p class="alert alert-danger">Desculpe, pesquisa não encontrada tente novamente com outros
+        termos ou confira a  <a  href="{% url 'setor:setores' %}"> <b> Lista Setores <b> </a>
+
+        </p>
         {% endif %}
  
 
