@@ -10,9 +10,9 @@ class SetorAdmin(admin.ModelAdmin):
         '__str__',
     )
 
-    def save_model(self, request, obj, form, change):
-        obj.user = request.user
-        obj.save()
+    # def save_model(self, request, obj, form, change):
+    #     obj.user = request.user
+    #     obj.save()
 
     def get_queryset(self, request):
         qs = super(SetorAdmin, self).get_queryset(request)
