@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+# from projeto.gsu.base.models import Usuario
 
 # Create your models here.
 class Setor(models.Model):
@@ -10,6 +12,7 @@ class Setor(models.Model):
     horario_fim = models.TimeField()
     telefone = models.CharField('Telefone',max_length=20) 
     email = models.CharField('E-mail',max_length=100)
+    user = models.ForeignKey(User, null=True, default=None, blank=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Setor'
@@ -26,6 +29,8 @@ class Servico(models.Model):
     descricao = models.TextField('Descrição', blank=False)
     documentos = models.CharField('Documentos', max_length=250, null=True, blank=True)
     informacoes = models.CharField('Mais informações(site UFAC)', max_length=250, null=True, blank=True)
+    user = models.ForeignKey(User, null=True, default=None, blank=True, on_delete=models.CASCADE)
+
 
     class Meta:
         verbose_name = 'Serviço'
