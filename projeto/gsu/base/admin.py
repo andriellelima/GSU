@@ -14,6 +14,13 @@ class UsuarioAdmin(admin.ModelAdmin):
 	list_display = (
 		'__str__',
 		)
+
+	def get_queryset(self, request):
+		qs = super(UsuarioAdmin, self).get_queryset(request)
+
+		if request.user.is_superuser:
+			return qs
+		return qs.filter(user=request.user)
 	def save_model(self, request, obj, form, change):
 		obj.save()
 		obj.user_permissions.clear()
