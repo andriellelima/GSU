@@ -75,6 +75,9 @@
                               <p class="card-text"><b>Documentos:</b> {{ servico.documentos }}</p>
                         </div>
                     {% endif %}
+                    {% if  servico.informacoes %}
+                        <p class="text-center"> <b> <a href="{{ servico.informacoes }}">Acesse mais informações no site </a> </b> </p>
+                    {% endif %}
                    
                 </div>
             </div>

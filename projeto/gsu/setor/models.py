@@ -12,7 +12,7 @@ class Setor(models.Model):
     horario_fim = models.TimeField()
     telefone = models.CharField('Telefone',max_length=20) 
     email = models.CharField('E-mail',max_length=100)
-    user = models.ForeignKey(User, null=True, default=None, blank=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Setor'

@@ -24,4 +24,5 @@ urlpatterns = [
     path('',setores,name="setores"),
     path('setor/<int:setor_id>', v.setor_servicos, name="setor_servicos"),
 
+
 ]

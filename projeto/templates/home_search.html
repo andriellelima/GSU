@@ -2,15 +2,15 @@
 {% load static %}
 {% block conteudo %}
 
-<br><br><br><br><br>
+<br><br><br>
 
         {% if  servico_list  %}
-            <h3 class="text-center"> Resultado da pesquisa</h3>
-            <div class="row">
+            <h1 class="text-center"> Resultado da pesquisa</h1>
+            <div class="row mt-5">
             {% for servico in servico_list %}
-                    <div class="alert alert-dark" role="alert">
+                    <div class="alert alert-dark mr-3" role="alert">
                         <a href="{% url 'setor:setor_servicos' servico.setor.id %}" class="alert alert-secondary" role="alert">
-                            <div>{{ servico.setor }}</div>
+                            <div> {{ servico.setor }}</div>
                             <h5><b>{{ servico.titulo }}</b></h5> 
                         </a>    
                     </div>

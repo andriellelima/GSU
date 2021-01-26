@@ -123,9 +123,13 @@ def logar(request):
     return render(request, 'login.html', locals())
 
 
+
 def sair(request):
     logout(request)
     return redirect('base:home')
 
 def gerenciar(request):
+    return redirect('/admin')
+
+def log(request):
     return redirect('/admin')
