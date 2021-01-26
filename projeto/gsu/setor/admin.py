@@ -19,10 +19,8 @@ class SetorAdmin(admin.ModelAdmin):
         return qs.filter(user=request.user)
 
     def save_model(self, request, obj, form, change):
-        obj.usuario = Usuario.objects.get(pk=request.user.pk)	
-        print(obj.usuario)
-        obj.save()	
-        super().save_model(request, obj, form, change)
+        obj.user = request.user
+        obj.save()
 
 
 
@@ -33,10 +31,8 @@ class ServicoAdmin(admin.ModelAdmin):
     )
 
     def save_model(self, request, obj, form, change):
-        obj.usuario = Usuario.objects.get(pk=request.user.pk)	
-        print(obj.usuario)
-        obj.save()	
-        super().save_model(request, obj, form, change)
+        obj.user = request.user
+        obj.save()
 
     def get_queryset(self, request):
         qs = super(ServicoAdmin, self).get_queryset(request)
