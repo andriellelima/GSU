@@ -17,11 +17,11 @@ class UserAdmin(admin.ModelAdmin):
 		obj.is_staff = True
 		super().save_model(request, obj, form, change)
 
-# @admin.register(Usuario)
-# class UsuarioAdmin(admin.ModelAdmin):
-#     	list_display = (
-# 		'__str__',
-# 	)
+@admin.register(Usuario)
+class UsuarioAdmin(admin.ModelAdmin):
+    	list_display = (
+		'__str__',
+	)
 
 @admin.register(Sugestao)
 class SugestaoAdmin(admin.ModelAdmin):
