@@ -4,14 +4,7 @@ from gsu.setor.models import Setor, Servico
 # from base.choice import CAMPUS_CHOICES
 
 
-<<<<<<< HEAD
 class Usuario(User):
-=======
-class Usuario(models.Model):
-    usuario = models.OneToOneField(User, null=False, blank=False, editable=True,
-    related_name='usuario_set', on_delete=models.CASCADE)
-    # setor = models.ForeignKey(Setor, null=False, blank=False,on_delete=models.CASCADE)
->>>>>>> 45987e863a2b62479c191c5e7315dc8ef293aa0f
     nome = models.CharField(max_length=100, null=False, blank=False)
     cpf = models.CharField('CPF', max_length=15, null=False, blank=False)
 

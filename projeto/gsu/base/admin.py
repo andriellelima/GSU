@@ -2,12 +2,18 @@ from django.contrib import admin
 from .models import Sugestao, Usuario
 from django.contrib.auth.models import Permission
 from django.contrib import admin
-from .forms import UsuarioForm
+from .forms import *
 from django.db.models import Q
+from django.contrib.auth.admin import UserAdmin
+
 
 @admin.register(Usuario)
-class UserAdmin(admin.ModelAdmin):
-	form = UsuarioForm
+class UsuarioAdmin(admin.ModelAdmin):
+	add_form = UsuarioForm
+	form = UsuarioChangeForm
+	list_display = (
+		'__str__',
+		)
 	def save_model(self, request, obj, form, change):
 		obj.save()
 		obj.user_permissions.clear()
@@ -16,12 +22,17 @@ class UserAdmin(admin.ModelAdmin):
 			obj.user_permissions.add(permission)	
 		obj.is_staff = True
 		super().save_model(request, obj, form, change)
+		
+	def get_form(self, request, obj=None, **kwargs):
+		defaults = {}
+		if obj is None:
+			defaults['form'] = self.add_form
+		defaults.update(kwargs)
+		return super().get_form(request, obj, **defaults)
+		
+		
 
-@admin.register(Usuario)
-class UsuarioAdmin(admin.ModelAdmin):
-    	list_display = (
-		'__str__',
-	)
+    	
 
 @admin.register(Sugestao)
 class SugestaoAdmin(admin.ModelAdmin):

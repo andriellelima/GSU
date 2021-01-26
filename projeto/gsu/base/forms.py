@@ -33,8 +33,9 @@ class UsuarioForm(ModelForm):
 
 class UsuarioChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField(label= ("Senha"),
-    help_text= ("<a href=\"../password/\">Clique aqui para alterar a senha</a>."))
-
+    help_text= (""))
+    def clean_password(self):
+        return self.initial["password"]
     class Meta:
         fields = ('username', 'password', 'nome','cpf')
         model = Usuario
