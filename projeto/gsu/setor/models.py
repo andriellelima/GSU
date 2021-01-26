@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class Setor(models.Model):
     nome = models.CharField('Nome do Setor',max_length=100)
     descricao = models.TextField('Descrição',blank=True)
-    reponsavel = models.CharField('Nome do Resposável',max_length=100)
-    localizacao = models.CharField('Localizacao(Link Maps)', max_length=500)
+    responsavel = models.CharField('Nome do Resposável',max_length=100)
+    localizacao = models.CharField('Localizacao(Link do Mapa da UFAC)', max_length=500)
     horario_inicio = models.TimeField()
     horario_fim = models.TimeField()
     telefone = models.CharField('Telefone',max_length=20) 
@@ -29,7 +29,6 @@ class Servico(models.Model):
     descricao = models.TextField('Descrição', blank=False)
     documentos = models.CharField('Documentos', max_length=250, null=True, blank=True)
     informacoes = models.CharField('Mais informações(site UFAC)', max_length=250, null=True, blank=True)
-    user = models.ForeignKey(User, null=True, default=None, blank=True, on_delete=models.CASCADE)
 
 
     class Meta:

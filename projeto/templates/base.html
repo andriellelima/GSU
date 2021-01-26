@@ -35,19 +35,11 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <form method="GET" class="form-inline">
-            <div class="input-group">
-              <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar">
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </form>
           <ul class="navbar-nav">
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'setor:setores' %}"> Setores </a>
             </li>
-            
+
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:mapa' %}">Mapa dos Blocos</a>
             </li>
@@ -55,7 +47,7 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3" href="{% url 'base:sugestao' %}">Mensagem</a>
             </li>
-            
+
             {% if user.is_authenticated %}
             <li class="nav-item mx-0 mx-lg-1">
               <div class="dropdown">
@@ -65,7 +57,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="{% url 'base:gerenciar' %}">Gerenciar</a>
-<!--                  <a class="dropdown-item" href="#">Alterar senha</a>-->
+                  <!--                  <a class="dropdown-item" href="#">Alterar senha</a>-->
                   <a class="dropdown-item" href="{% url 'base:logout' %}">Sair</a>
                 </div>
               </div>
@@ -81,27 +73,27 @@
     </div>
   </nav>
   <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
 
-      <!-- Masthead Avatar Image -->
-      <img src="{% static 'img/Ufac.png' %}" width="150px">
+    <img src="{% static 'img/Ufac.png' %}" width="100px">
 
-      <!-- Masthead Heading -->
-      <h5 class="masthead-heading text-uppercase mb-0">Guia de Serviços Ufac</h5>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
+    <h1 class="text-center">Guia de Serviços Ufac</h1>
+    <form form method="GET" class="d-flex justify-content-center">
+      <div class="col-md-6 p-2 bd-highlight">
+        <input class="form-control me-5"  id="search" name="search"  type="text"
+          placeholder="Pesquise por termos chaves. ex: bolsa, biblioteca..." aria-label="Search">
       </div>
+      <div class="p-2 bd-highlight">
+        <button class="btn btn-dark" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          Pesquisar
+        </button>
+      </div>
+    </form>
 
-      <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Tem como objetivo facilitar sua procura!</p>
-
-    </div>
   </header>
 
   <div class="container mt-5">
